@@ -22,16 +22,16 @@ const SigninForm = ({ switchAuthState }) => {
     },
     validationSchema: Yup.object({
       username: Yup.string()
-        .min(8, "username minimum 8 characters")
-        .required("username is required"),
+        .min(8, "Tên người dùng tối thiểu 8 ký tự")
+        .required("Tên người dùng là bắt buộc"),
       password: Yup.string()
-        .min(8, "password minimum 8 characters")
-        .required("password is required")
+        .min(8, "Mật khẩu tối thiểu 8 ký tự")
+        .required("Mật khẩu là bắt buộc")
     }),
     onSubmit: async values => {
       setErrorMessage(undefined);
       setIsLoginRequest(true);
-      console.log("Đăng nhập thành công!");
+      // console.log("Đăng nhập thành công!");
       const { response, err } = await userApi.signin(values);
       setIsLoginRequest(false);
 
@@ -39,7 +39,7 @@ const SigninForm = ({ switchAuthState }) => {
         signinForm.resetForm();
         dispatch(setUser(response));
         dispatch(setAuthModalOpen(false));
-        toast.success("Sign in success");
+        toast.success("Đăng nhập thành công.");
       }
 
       if (err) setErrorMessage(err.message);
@@ -51,7 +51,7 @@ const SigninForm = ({ switchAuthState }) => {
       <Stack spacing={3}>
         <TextField
           type="text"
-          placeholder="username"
+          placeholder="Email, tên tài khoản"
           name="username"
           fullWidth
           value={signinForm.values.username}
@@ -62,7 +62,7 @@ const SigninForm = ({ switchAuthState }) => {
         />
         <TextField
           type="password"
-          placeholder="password"
+          placeholder="Mật khẩu"
           name="password"
           fullWidth
           value={signinForm.values.password}
@@ -81,7 +81,7 @@ const SigninForm = ({ switchAuthState }) => {
         sx={{ marginTop: 4 }}
         loading={isLoginRequest}
       >
-        sign in
+        Đăng nhập
       </LoadingButton>
 
       <Button
@@ -89,7 +89,7 @@ const SigninForm = ({ switchAuthState }) => {
         sx={{ marginTop: 1 }}
         onClick={() => switchAuthState()}
       >
-        sign up
+        Đăng ký
       </Button>
 
       {errorMessage && (

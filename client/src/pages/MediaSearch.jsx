@@ -91,7 +91,7 @@ const MediaSearch = () => {
                     </Stack>
                     <TextField
                         color="success"
-                        placeholder="Search MoonFlix"
+                        placeholder="Tìm kiếm"
                         sx={{ width: "100%" }}
                         autoFocus
                         onChange={onQueryChange}
@@ -104,7 +104,7 @@ const MediaSearch = () => {
                             loading={onSearch}
                             onClick={() => setPage(page + 1)}
                         >
-                            load more
+                            Xem thêm
                         </LoadingButton>
                     )}
                 </Stack>

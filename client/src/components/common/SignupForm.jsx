@@ -24,18 +24,18 @@ const SignupForm = ({ switchAuthState }) => {
     },
     validationSchema: Yup.object({
       username: Yup.string()
-        .min(8, "username minimum 8 characters")
-        .required("username is required"),
+        .min(8, "Tên người dùng tối thiểu 8 ký tụ")
+        .required("Tên người dùng là bắt buộc"),
       password: Yup.string()
-        .min(8, "password minimum 8 characters")
-        .required("password is required"),
+        .min(8, "Mật khẩu tối thiểu 8 ký tự")
+        .required("Mật khẩu là bắt buộc"),
       displayName: Yup.string()
-        .min(8, "displayName minimum 8 characters")
-        .required("displayName is required"),
+        .min(8, "Tên hiển thị tối thiểu 8 ký tự")
+        .required("Tên hiển thị là bắt buộc"),
       confirmPassword: Yup.string()
         .oneOf([Yup.ref("password")], "confirmPassword not match")
-        .min(8, "confirmPassword minimum 8 characters")
-        .required("confirmPassword is required")
+        .min(8, "Xác nhận mật khẩu tối thiểu 8 ký tự")
+        .required("Xác nhận mật khẩu là bắt buộc")
     }),
     onSubmit: async values => {
       setErrorMessage(undefined);
@@ -48,7 +48,7 @@ const SignupForm = ({ switchAuthState }) => {
         signinForm.resetForm();
         dispatch(setUser(response));
         dispatch(setAuthModalOpen(false));
-        toast.success("Sign in success");
+        toast.success("Đăng ký thành công.");
       }
 
       if (err) setErrorMessage(err.message);
@@ -60,7 +60,7 @@ const SignupForm = ({ switchAuthState }) => {
       <Stack spacing={3}>
         <TextField
           type="text"
-          placeholder="username"
+          placeholder="Email, tên tài khoản"
           name="username"
           fullWidth
           value={signinForm.values.username}
@@ -71,7 +71,7 @@ const SignupForm = ({ switchAuthState }) => {
         />
         <TextField
           type="text"
-          placeholder="display name"
+          placeholder="Tên hiển thị"
           name="displayName"
           fullWidth
           value={signinForm.values.displayName}
@@ -82,7 +82,7 @@ const SignupForm = ({ switchAuthState }) => {
         />
         <TextField
           type="password"
-          placeholder="password"
+          placeholder="Mật khẩu"
           name="password"
           fullWidth
           value={signinForm.values.password}
@@ -93,7 +93,7 @@ const SignupForm = ({ switchAuthState }) => {
         />
         <TextField
           type="password"
-          placeholder="confirm password"
+          placeholder="Xác nhận mật khẩu"
           name="confirmPassword"
           fullWidth
           value={signinForm.values.confirmPassword}
@@ -112,7 +112,7 @@ const SignupForm = ({ switchAuthState }) => {
         sx={{ marginTop: 4 }}
         loading={isLoginRequest}
       >
-        sign up
+        Đăng ký
       </LoadingButton>
 
       <Button
@@ -120,7 +120,7 @@ const SignupForm = ({ switchAuthState }) => {
         sx={{ marginTop: 1 }}
         onClick={() => switchAuthState()}
       >
-        sign in
+        Đăng nhập
       </Button>
 
       {errorMessage && (

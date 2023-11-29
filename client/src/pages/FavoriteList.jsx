@@ -26,7 +26,7 @@ const FavoriteItem = ({ media, onRemoved }) => {
 
         if (err) toast.error(err.message);
         if (response) {
-            toast.success("Remove favorite success");
+            toast.success("Thành công! Đã xóa khỏi danh sách yêu thích.");
             dispatch(removeFavorite({ mediaId: media.mediaId }));
             onRemoved(media.id);
         }
@@ -44,7 +44,8 @@ const FavoriteItem = ({ media, onRemoved }) => {
                 loading={onRequest}
                 onClick={onRemove}
             >
-                remove
+                {/* remove */}
+                Xóa
             </LoadingButton>
         </>
     );
@@ -94,7 +95,7 @@ const FavoriteList = () => {
 
     return (
         <Box sx={{ ...uiConfigs.style.mainContent }}>
-            <Container header={`Your favorites (${count})`}>
+            <Container header={`Danh sách yêu thích của bạn (${count})`}>
                 <Grid
                     container
                     spacing={1}
@@ -107,7 +108,7 @@ const FavoriteList = () => {
                     ))}
                 </Grid>
                 {filteredMedias.length < medias.length && (
-                    <Button onClick={onLoadMore}>load more</Button>
+                    <Button onClick={onLoadMore}>Xem thêm</Button>
                 )}
             </Container>
         </Box>

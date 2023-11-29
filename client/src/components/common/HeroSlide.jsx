@@ -227,7 +227,7 @@ const HeroSlide = ({ mediaType, mediaCategory }) => {
                                         )}
                                         sx={{ width: "max-content" }}
                                     >
-                                        watch now
+                                        Xem ngay
                                     </Button>
                                     {/* buttons */}
                                 </Stack>

@@ -22,9 +22,11 @@ const server = http.createServer(app);
 mongoose
     .connect(process.env.MONGODB_URL)
     .then(() => {
-        console.log("Mongodb connected");
+        console.log("Đã kết nối thành công với Mongodb");
         server.listen(port, () => {
-            console.log(`Server is listening on port ${port}`);
+            console.log(
+                `Máy chủ đang lắng nghe trên cổng http://localhost: ${port}`
+            );
         });
     })
     .catch((err) => {

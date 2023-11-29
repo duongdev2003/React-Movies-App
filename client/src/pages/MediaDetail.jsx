@@ -94,7 +94,7 @@ const MediaDetail = () => {
         if (response) {
             dispatch(addFavorite(response));
             setIsFavorite(true);
-            toast.success("Add favorite success");
+            toast.success("Thành công! Đã thêm vào danh sách yêu thích.");
         }
     };
 
@@ -116,7 +116,7 @@ const MediaDetail = () => {
         if (response) {
             dispatch(removeFavorite(favorite));
             setIsFavorite(false);
-            toast.success("Remove favorite success");
+            toast.success("Thành công! Đã xóa danh sách yêu thích.");
         }
     };
 
@@ -259,13 +259,13 @@ const MediaDetail = () => {
                                             videoRef.current.scrollIntoView()
                                         }
                                     >
-                                        watch now
+                                        Xem ngay
                                     </Button>
                                 </Stack>
                                 {/* buttons */}
 
                                 {/* cast */}
-                                <Container header="Cast">
+                                <Container header="Diễn viên">
                                     <CastSlide casts={media.credits.cast} />
                                 </Container>
                                 {/* cast */}
@@ -278,7 +278,7 @@ const MediaDetail = () => {
 
                 {/* media videos */}
                 <div ref={videoRef} style={{ paddingTop: "2rem" }}>
-                    <Container header="Videos">
+                    <Container header="Video">
                         <MediaVideosSlide
                             videos={[...media.videos.results].splice(0, 5)}
                         />
@@ -288,7 +288,7 @@ const MediaDetail = () => {
 
                 {/* media backdrop */}
                 {media.images.backdrops.length > 0 && (
-                    <Container header="backdrops">
+                    <Container header="Ảnh nền">
                         <BackdropSlide backdrops={media.images.backdrops} />
                     </Container>
                 )}
@@ -311,7 +311,7 @@ const MediaDetail = () => {
                 {/* media reviews */}
 
                 {/* media recommendation */}
-                <Container header="you may also like">
+                <Container header="Có thể bạn quan tâm">
                     {media.recommend.length > 0 && (
                         <RecommendSlide
                             medias={media.recommend}

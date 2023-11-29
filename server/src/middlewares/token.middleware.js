@@ -4,7 +4,7 @@ import userModel from "../models/user.model.js";
 
 const tokenDecode = (req) => {
   try {
-    const bearerHeader = req.headers["authorization"];
+    const bearerHeader = req.headers["Được phép"];
 
     if (bearerHeader) {
       const token = bearerHeader.split(" ")[1];

@@ -26,15 +26,15 @@ const PasswordUpdate = () => {
         },
         validationSchema: Yup.object({
             password: Yup.string()
-                .min(8, "password minimum 8 characters")
-                .required("password is required"),
+                .min(8, "Mật khẩu tối thiểu 8 ký tự")
+                .required("Mật khẩu tối thiểu 8 ký tự"),
             newPassword: Yup.string()
-                .min(8, "newPassword minimum 8 characters")
-                .required("newPassword is required"),
+                .min(8, "Mật khẩu mới tối thiểu 8 ký tự")
+                .required("Mật khẩu mới tối thiểu 8 ký tự"),
             confirmNewPassword: Yup.string()
                 .oneOf([Yup.ref("newPassword")], "confirmNewPassword not match")
-                .min(8, "confirmNewPassword minimum 8 characters")
-                .required("confirmNewPassword is required"),
+                .min(8, "Xác nhận mật khẩu mới tối thiểu 8 ký tự")
+                .required("Xác nhận mật khẩu mới tối thiểu 8 ký tự"),
         }),
         onSubmit: async (values) => onUpdate(values),
     });
@@ -53,7 +53,7 @@ const PasswordUpdate = () => {
             navigate("/");
             dispatch(setUser(null));
             dispatch(setAuthModalOpen(true));
-            toast.success("Update password success! Please re-login");
+            toast.success("Thay đổi mật khẩu thành công! Vui lòng đăng nhập lại.");
         }
     };
 
@@ -68,7 +68,7 @@ const PasswordUpdate = () => {
                     <Stack spacing={2}>
                         <TextField
                             type="password"
-                            placeholder="password"
+                            placeholder="Mật khẩu"
                             name="password"
                             fullWidth
                             value={form.values.password}
@@ -84,7 +84,7 @@ const PasswordUpdate = () => {
                         />
                         <TextField
                             type="password"
-                            placeholder="new password"
+                            placeholder="Mật khẩu mới"
                             name="newPassword"
                             fullWidth
                             value={form.values.newPassword}
@@ -101,7 +101,7 @@ const PasswordUpdate = () => {
                         />
                         <TextField
                             type="password"
-                            placeholder="confirm new password"
+                            placeholder="Xác nhận mật khẩu mới"
                             name="confirmNewPassword"
                             fullWidth
                             value={form.values.confirmNewPassword}
@@ -124,7 +124,7 @@ const PasswordUpdate = () => {
                             sx={{ marginTop: 4 }}
                             loading={onRequest}
                         >
-                            update password
+                            Thay đổi mật khẩu
                         </LoadingButton>
                     </Stack>
                 </Box>

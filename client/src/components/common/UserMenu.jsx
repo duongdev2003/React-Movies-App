@@ -67,7 +67,7 @@ const UserMenu = () => {
                                 disableTypography
                                 primary={
                                     <Typography textTransform="uppercase">
-                                        sign out
+                                        Đăng xuất
                                     </Typography>
                                 }
                             />

@@ -74,7 +74,7 @@ const Sidebar = ({ open, toggleSidebar }) => {
                 {user && (
                     <>
                         <Typography variant="h6" marginBottom="20px">
-                            PERSONAL
+                            CÁ NHÂN
                         </Typography>
                         {menuConfigs.user.map((item, index) => (
                             <ListItemButton
@@ -107,7 +107,7 @@ const Sidebar = ({ open, toggleSidebar }) => {
                 )}
 
                 <Typography variant="h6" marginBottom="20px">
-                    THEME
+                    CHẾ ĐỘ
                 </Typography>
                 <ListItemButton onClick={onSwitchTheme}>
                     <ListItemIcon>
@@ -123,8 +123,8 @@ const Sidebar = ({ open, toggleSidebar }) => {
                         primary={
                             <Typography textTransform="uppercase">
                                 {themeMode === themeModes.dark
-                                    ? "dark mode"
-                                    : "light mode"}
+                                    ? "chế độ sáng"
+                                    : "chế độ tối"}
                             </Typography>
                         }
                     />

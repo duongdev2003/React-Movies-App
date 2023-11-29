@@ -16,18 +16,18 @@ router.post(
   "/",
   tokenMiddleware.auth,
   body("mediaId")
-    .exists().withMessage("mediaId is required")
-    .isLength({ min: 1 }).withMessage("mediaId can not be empty"),
+    .exists().withMessage("mediaId là bắt buộc")
+    .isLength({ min: 1 }).withMessage("mediaId không được để trống"),
   body("content")
-    .exists().withMessage("content is required")
-    .isLength({ min: 1 }).withMessage("content can not be empty"),
+    .exists().withMessage("content là bắt buộc")
+    .isLength({ min: 1 }).withMessage("content không được để trống"),
   body("mediaType")
-    .exists().withMessage("mediaType is required")
-    .custom(type => ["movie", "tv"].includes(type)).withMessage("mediaType invalid"),
+    .exists().withMessage("mediaType là bắt buộc")
+    .custom(type => ["movie", "tv"].includes(type)).withMessage("mediaType không hợp lệ"),
   body("mediaTitle")
-    .exists().withMessage("mediaTitle is required"),
+    .exists().withMessage("mediaTitle là bắt buộc"),
   body("mediaPoster")
-    .exists().withMessage("mediaPoster is required"),
+    .exists().withMessage("mediaPoster là bắt buộc"),
   requestHandler.validate,
   reviewController.create
 );

@@ -26,7 +26,7 @@ const ReviewItem = ({ review, onRemoved }) => {
 
         if (err) toast.error(err.message);
         if (response) {
-            toast.success("Remove review success");
+            toast.success("Thành công! Đã xóa đánh giá của bạn.");
             onRemoved(review.id);
         }
     };
@@ -99,7 +99,7 @@ const ReviewItem = ({ review, onRemoved }) => {
                 loading={onRequest}
                 onClick={onRemove}
             >
-                remove
+                Xóa
             </LoadingButton>
         </Box>
     );
@@ -151,7 +151,7 @@ const ReviewList = () => {
 
     return (
         <Box sx={{ ...uiConfigs.style.mainContent }}>
-            <Container header={`Your reviews (${count})`}>
+            <Container header={`Đánh giá của bạn (${count})`}>
                 <Stack spacing={2}>
                     {filteredReviews.map((item) => (
                         <Box key={item.id}>
@@ -164,7 +164,7 @@ const ReviewList = () => {
                         </Box>
                     ))}
                     {filteredReviews.length < reviews.length && (
-                        <Button onClick={onLoadMore}>load more</Button>
+                        <Button onClick={onLoadMore}>Xem thêm</Button>
                     )}
                 </Stack>
             </Container>

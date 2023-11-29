@@ -63,7 +63,7 @@ const ReviewItem = ({ review, onRemoved }) => {
                 width: "max-content"
               }}
             >
-              remove
+              Xóa
             </LoadingButton>
           )}
         </Stack>

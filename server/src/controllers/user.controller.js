@@ -8,7 +8,7 @@ const signup = async (req, res) => {
 
     const checkUser = await userModel.findOne({ username });
 
-    if (checkUser) return responseHandler.badrequest(res, "username already used");
+    if (checkUser) return responseHandler.badrequest(res, "Tên người dùng đã được sử dụng");
 
     const user = new userModel();
 
@@ -40,9 +40,9 @@ const signin = async (req, res) => {
 
     const user = await userModel.findOne({ username }).select("username password salt id displayName");
 
-    if (!user) return responseHandler.badrequest(res, "User not exist");
+    if (!user) return responseHandler.badrequest(res, "Tài khoản này không tồn tại");
 
-    if (!user.validPassword(password)) return responseHandler.badrequest(res, "Wrong password");
+    if (!user.validPassword(password)) return responseHandler.badrequest(res, "Sai mật khẩu");
 
     const token = jsonwebtoken.sign(
       { data: user.id },
@@ -71,7 +71,7 @@ const updatePassword = async (req, res) => {
 
     if (!user) return responseHandler.unauthorize(res);
 
-    if (!user.validPassword(password)) return responseHandler.badrequest(res, "Wrong password");
+    if (!user.validPassword(password)) return responseHandler.badrequest(res, "Sai mật khẩu");
 
     user.setPassword(newPassword);
 

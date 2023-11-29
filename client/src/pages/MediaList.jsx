@@ -128,7 +128,7 @@ const MediaList = () => {
                     loading={mediaLoading}
                     onClick={onLoadMore}
                 >
-                    load more
+                    Xem thêm
                 </LoadingButton>
             </Box>
         </>
